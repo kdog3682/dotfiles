@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/kdog3682'
+let g:netrw_dirhist_0='/'
+let g:netrw_dirhist_9='/home'
+let g:netrw_dirhist_8='/home/kdog3682'
+let g:netrw_dirhist_7='/home/kdog3682/.local/config'
+let g:netrw_dirhist_6='/home/kdog3682/.local'
+let g:netrw_dirhist_5='/home/kdog3682'
+let g:netrw_dirhist_4='/home/kdog3682/.config'
+let g:netrw_dirhist_3='/home/kdog3682/.config/pypoetry'
+let g:netrw_dirhist_2='/home/kdog3682/.config'
