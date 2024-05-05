@@ -24,6 +24,7 @@ vim.opt.wildmenu = true
 vim.opt.wildignorecase = true
 -- ignore files vim doesnt use
 vim.opt.wildignore:append(".git,.hg,.svn")
+vim.opt.wildignore:append("__pycache__")
 vim.opt.wildignore:append(".aux,*.out,*.toc")
 vim.opt.wildignore:append(".o,*.obj,*.exe,*.dll,*.manifest,*.rbc,*.class")
 vim.opt.wildignore:append(".ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp")
@@ -46,7 +47,6 @@ vim.opt.backspace = "indent,eol,start"
 -- searching
 vim.opt.hlsearch = false
 vim.opt.incsearch = false
--- vim.opt.inccommand = "split"
 
 -- use indents of 4
 vim.opt.shiftwidth = 4

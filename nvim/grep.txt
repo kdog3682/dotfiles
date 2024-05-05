@@ -1,0 +1,143 @@
+/home/kdog3682/.config/nvim/xero/lua/plugins/cmp.lua:		local cmp = require("cmp")
+/home/kdog3682/.config/nvim/xero/lua/plugins/cmp.lua:		local lsp_kind = require("lspkind")
+/home/kdog3682/.config/nvim/xero/lua/plugins/cmp.lua:			elseif require("luasnip").expand_or_jumpable() then
+/home/kdog3682/.config/nvim/xero/lua/plugins/cmp.lua:			elseif require("luasnip").jumpable(-1) then
+/home/kdog3682/.config/nvim/xero/lua/plugins/cmp.lua:					require("luasnip").lsp_expand(args.body)
+/home/kdog3682/.config/nvim/xero/lua/plugins/cmp.lua:		local presentAutopairs, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+/home/kdog3682/.config/nvim/xero/lua/plugins/colorizer.lua:		local r = require("utils.remaps")
+/home/kdog3682/.config/nvim/xero/lua/plugins/colorizer.lua:		local c = require("nvim-highlight-colors")
+/home/kdog3682/.config/nvim/xero/lua/plugins/comments.lua:		require('nvim_comment').setup()
+/home/kdog3682/.config/nvim/xero/lua/plugins/comments.lua:		require("which-key").register({
+/home/kdog3682/.config/nvim/xero/lua/plugins/devicons.lua:		require("nvim-web-devicons").setup({
+/home/kdog3682/.config/nvim/xero/lua/plugins/indent.lua:		require("ibl").setup({
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/remaps.lua:local r = require("utils.remaps")
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/remaps.lua:			require("fzf-lua").lsp_implementations()
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/remaps.lua:			require("fzf-lua").lsp_references()
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/remaps.lua:			require("plugins.lsp.format").run()
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/remaps.lua:			require("fzf-lua").lsp_document_symbols()
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/remaps.lua:		require("lsp_lines").toggle()
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/servers/tsserver.lua:local util = require 'lspconfig.util'
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/servers/volar.lua:local util = require 'lspconfig.util'
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/init.lua:		local lspconfig = require("lspconfig")
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/init.lua:		local remaps = require("plugins.lsp.remaps")
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/init.lua:		local icons = require("utils.icons")
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/init.lua:			lua_ls = require("plugins.lsp.servers.luals")(on_attach),
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/init.lua:			tsserver = require("plugins.lsp.servers.tsserver")(on_attach),
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/init.lua:			typst_lsp = require("plugins.lsp.servers.typstlsp")(on_attach),
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/init.lua:			volar = require("plugins.lsp.servers.volar")(on_attach),
+/home/kdog3682/.config/nvim/xero/lua/plugins/lsp/init.lua:		local present_mason, mason = pcall(require, "mason-lspconfig")
+/home/kdog3682/.config/nvim/xero/lua/plugins/lualine.lua:				local ok, devicons = pcall(require, 'nvim-web-devicons')
+/home/kdog3682/.config/nvim/xero/lua/plugins/luasnip.lua:		local luasnip = require("luasnip")
+/home/kdog3682/.config/nvim/xero/lua/plugins/luasnip.lua:    require("luasnip.loaders.from_vscode").lazy_load()
+/home/kdog3682/.config/nvim/xero/lua/plugins/luasnip.lua:		local r = require("utils.remaps")
+/home/kdog3682/.config/nvim/xero/lua/plugins/mason-dap.lua:		local mason_dap = require("mason-nvim-dap")
+/home/kdog3682/.config/nvim/xero/lua/plugins/surround.lua:		require("nvim-surround").setup({
+/home/kdog3682/.config/nvim/xero/lua/plugins/telescope.lua:		local telescope = require("telescope")
+/home/kdog3682/.config/nvim/xero/lua/plugins/telescope.lua:		local tele_actions = require("telescope.actions")
+/home/kdog3682/.config/nvim/xero/lua/plugins/telescope.lua:		local lga_actions = require("telescope-live-grep-args.actions")
+/home/kdog3682/.config/nvim/xero/lua/plugins/telescope.lua:		local lga_shortcuts = require("telescope-live-grep-args.shortcuts")
+/home/kdog3682/.config/nvim/xero/lua/plugins/telescope.lua:		local undo_actions = require("telescope-undo.actions")
+/home/kdog3682/.config/nvim/xero/lua/plugins/telescope.lua:		local r = require("utils.remaps")
+/home/kdog3682/.config/nvim/xero/lua/plugins/telescope.lua:		local i = require("utils.icons")
+/home/kdog3682/.config/nvim/xero/lua/plugins/which-key.lua:		local which_key = require("which-key")
+/home/kdog3682/.config/nvim/xero/lua/plugins/mason.lua:		local f = require("utils.functions")
+/home/kdog3682/.config/nvim/xero/lua/plugins/mason.lua:		require("mason").setup({
+/home/kdog3682/.config/nvim/xero/lua/plugins/mason.lua:				icons = require("utils.icons").mason,
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").commands()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").command_history()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").files()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").oldfiles()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").highlights()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").marks()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").keymaps()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").treesitter()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").git_files()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").git_branches()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").git_commits()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").git_bcommits()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").git_bcommits()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:				require("fzf-lua").resume()
+/home/kdog3682/.config/nvim/xero/lua/plugins/fzf.lua:		local fzf = require("fzf-lua")
+/home/kdog3682/.config/nvim/xero/lua/plugins/treesitter.lua:		local treesitter = require("nvim-treesitter.configs")
+/home/kdog3682/.config/nvim/xero/lua/plugins/treesitter.lua:		local r = require("xero.utils.remaps")
+/home/kdog3682/.config/nvim/xero/lua/commands.lua:local f = require("utils.functions")
+/home/kdog3682/.config/nvim/xero/lua/commands.lua:local r = require("utils.remaps")
+/home/kdog3682/.config/nvim/xero/lua/plugins.lua:utils = require("kdog3682.utils")
+/home/kdog3682/.config/nvim/xero/lua/plugins.lua:local status_ok, lazy = pcall(require, "lazy")
+/home/kdog3682/.config/nvim/xero/lua/plugins.lua:		return require("kdog3682.plugins." .. plugin)
+/home/kdog3682/.config/nvim/xero/lua/plugins.lua:			icons = require("utils.icons").lazy,
+/home/kdog3682/.config/nvim/xero/nvim-logo: requirements:
+/home/kdog3682/.config/nvim/xero/init.lua:require("general")
+/home/kdog3682/.config/nvim/xero/init.lua:require("ui")
+/home/kdog3682/.config/nvim/xero/init.lua:require("commands")
+/home/kdog3682/.config/nvim/xero/init.lua:require("self")
+/home/kdog3682/.config/nvim/xero/init.lua:require("plugins")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/autopairs.lua:        local npairs = require("nvim-autopairs")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/autopairs.lua:        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/autopairs.lua:        local cmp = require("cmp")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/comment.lua:    local comment = require("Comment")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/comment.lua:    local ts_context_commentstring = require("ts_context_commentstring.integrations.comment_nvim")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:                local ls = require 'luasnip'
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:                local types = require 'luasnip.util.types'
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:                require("snippets.lua")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:                        if require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()] and not require('luasnip').session.jump_active then
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:                            require('luasnip').unlink_current()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:        local cmp = require 'cmp'
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:                    require('luasnip').lsp_expand(args.body)
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:                    if require('luasnip').expand_or_jumpable() then
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:                    elseif require('luasnip').jumpable(-1) then
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/lsp.lua:        require('cmp').setup(opts)
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/nvim-tree.lua:	local api = require("nvim-tree.api")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/nvim-tree.lua:		local nvimtree = require("nvim-tree")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/nvim-treesitter.lua:	require("nvim-treesitter.configs").setup({
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/treesitter-textobjects.lua:    require("nvim-treesitter.configs").setup({
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/treesitter-textobjects.lua:    local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/treesitter.lua:		local treesitter = require("nvim-treesitter.configs")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/treesitter.lua:		local r = require("utils.remaps")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").commands()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").command_history()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").files()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").oldfiles()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").highlights()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").marks()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").keymaps()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").treesitter()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").git_files()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").git_branches()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").git_commits()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").git_bcommits()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").git_bcommits()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:				require("fzf-lua").resume()
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins/fzf.lua:		local fzf = require("fzf-lua")
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local ls = require 'luasnip'
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local l = require('luasnip.extras').lambda
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local rep = require('luasnip.extras').rep
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local p = require('luasnip.extras').partial
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local m = require('luasnip.extras').match
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local n = require('luasnip.extras').nonempty
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local dl = require('luasnip.extras').dynamic_lambda
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local fmt = require('luasnip.extras.fmt').fmt
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local fmta = require('luasnip.extras.fmt').fmta
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local types = require 'luasnip.util.types'
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local conds = require 'luasnip.extras.conditions'
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:local conds_expand = require 'luasnip.extras.conditions.expand'
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:    formatter("ts_utils", "local ts_utils = require(\"nvim-treesitter.ts_utils\") "),
+/home/kdog3682/.config/nvim/lua/kdog3682/snippets/lua.lua:    formatter("ls", "local ls = require(\"luasnip\")"),
+/home/kdog3682/.config/nvim/lua/kdog3682/functions/utils.lua:	require("fzf-lua").fzf_exec(input, { actions = { default = default } })
+/home/kdog3682/.config/nvim/lua/kdog3682/functions/utils.lua:	local api = require("nvim-tree.api")
+/home/kdog3682/.config/nvim/lua/kdog3682/functions/utils.lua:	local tree = require("nvim-tree.api").tree
+/home/kdog3682/.config/nvim/lua/kdog3682/functions/utils.lua:	local tree = require("nvim-tree.api").tree
+/home/kdog3682/.config/nvim/lua/kdog3682/functions/utils.lua:	local tree = require("nvim-tree.api").tree
+/home/kdog3682/.config/nvim/lua/kdog3682/functions/utils.lua:		["default"] = require("fzf-lua").actions.file_edit,
+/home/kdog3682/.config/nvim/lua/kdog3682/functions/utils.lua:	require("fzf-lua").fzf_exec(q, { cwd = s, actions = actions })
+/home/kdog3682/.config/nvim/lua/kdog3682/functions/utils.lua:    local ts_utils = require("nvim-treesitter.ts_utils") 
+/home/kdog3682/.config/nvim/lua/kdog3682/functions/utils.lua:    local ls = require("luasnip")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins.lua:utils = require("kdog3682.functions.utils")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins.lua:local status_ok, lazy = pcall(require, "lazy")
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins.lua:		return require("kdog3682.plugins." .. plugin)
+/home/kdog3682/.config/nvim/lua/kdog3682/plugins.lua:			icons = require("utils.icons").lazy,
+/home/kdog3682/.config/nvim/lua/xero/utils/duplicates.lua:local functions = require("utils.functions")
+/home/kdog3682/.config/nvim/lua/xero/utils/functions.lua:	local presentReload, reload = pcall(require, "plenary.reload")
+/home/kdog3682/.config/nvim/lua/xero/utils/remaps.lua:local check_duplicates = require("utils.duplicates").check_duplicates
+/home/kdog3682/.config/nvim/lua/xero/utils/remaps.lua:	local present_which_key, which_key = pcall(require, "which-key")
+/home/kdog3682/.config/nvim/init.vim:-- require("kdog3862")

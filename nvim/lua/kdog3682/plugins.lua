@@ -1,4 +1,21 @@
-utils = require("kdog3682.utils")
+local plugins = {
+	"fzf",
+	-- "treesitter",
+    -- "whichkey",
+	--
+	--
+	--
+	--
+	--
+	--
+	--
+	--
+	--
+	--
+	--
+}
+
+utils = require("kdog3682.functions.utils")
 
 lockfilepath = vim.fn.stdpath("config") .. "/lua/plugins/lazy-lock.json"
 local devpath = "~/.local/src"
@@ -23,22 +40,17 @@ if not status_ok then
 	return
 end
 
-local disabled = {
-	"gzip",
-	"matchparen",
-	"netrwPlugin",
-	"tarPlugin",
-	"tohtml",
-	"tutor",
-	"zipPlugin",
-}
+function loader(plugins)
+	local disabled = {
+		"gzip",
+		"matchparen",
+		"netrwPlugin",
+		"tarPlugin",
+		"tohtml",
+		"tutor",
+		"zipPlugin",
+	}
 
-local plugins = {
-	"fzf",
-	"treesitter",
-}
-
-function loader(plugins, disabled)
 	function callback(plugin)
 		return require("kdog3682.plugins." .. plugin)
 	end
@@ -48,11 +60,23 @@ function loader(plugins, disabled)
 			path = devpath,
 		},
 		lockfile = lockfilepath,
+		defaults = {
+			lazy = false,
+			version = nil,
+		},
+		checker = {
+			enabled = false,
+			notify = false,
+			frequency = 86400,
+		},
+		change_detection = {
+			enabled = aflse,
+			notify = false,
+		},
 		ui = {
 			size = { width = 0.8, height = 0.8 },
 			wrap = true,
 			border = "shadow",
-			icons = require("utils.icons").lazy,
 		},
 		performance = {
 			cache = {
@@ -66,4 +90,4 @@ function loader(plugins, disabled)
 	})
 end
 
-loader(plugins, disabled)
+loader(plugins)

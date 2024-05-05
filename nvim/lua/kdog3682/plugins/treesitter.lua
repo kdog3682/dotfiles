@@ -16,7 +16,7 @@ return {
 				"vue",
 			},
 			highlight = {
-				enable = false
+				enable = false,
 			},
 			match = {
 				enable = true,
@@ -31,7 +31,7 @@ return {
 				},
 			},
 			indent = {
-				enable = true,
+				enable = false
 			},
 			-- textobjects = {
 			--   select = {
@@ -141,6 +141,6 @@ return {
 		-- r.map_virtual("[]", "Go to previous class (end)")
 	end,
 	build = function()
-		vim.cmd [[TSUpdate]]
+		vim.cmd([[TSUpdate]])
 	end,
 }

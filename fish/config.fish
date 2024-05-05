@@ -148,3 +148,5 @@ function nvi
 
     /mnt/chromeos/MyFiles/Downloads/nvim-linux64/bin/nvim $argv
 end
+
+abbr bfg '/mnt/chromeos/MyFiles/Downloads/bfg-1.14.0.jar'
