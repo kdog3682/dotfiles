@@ -48,9 +48,22 @@ function git-commit-all
 end
 
 
-function gc
-    git commit
+function t
+    set file $argv[1]
+    set -e argv[1]
+    set message (string join " " $argv)
+    echo ["$file"] ["$message"]
 end
+
+
+function gc 
+    set file $argv[1]
+    set -e argv[1]
+    set message (string join " " $argv)
+    git add $file
+    git commit -m "$message"
+end
+
 
 
 function s
@@ -139,11 +152,14 @@ abbr up 'cd ..'
 abbr cbh 'cat ~/.bash_history'
 abbr xxx 'ls ~/.cache/kdog3682'
 abbr cdnvim 'cd ~/.config/nvim'
+abbr cdfox 'cd ~/projects/foxscribe/'
+abbr pi 'pnpm install'
+abbr run 'npm run dev'
 abbr pyproject 'cat ~/projects/pyvimkit/pyproject.toml'
 
 function nvi
     if test (count $argv) -eq 0
-        set argv "~/.config/nvim/init.lua"
+        set argv "~/.config/nvim/init.vim"
     end
 
     /mnt/chromeos/MyFiles/Downloads/nvim-linux64/bin/nvim $argv

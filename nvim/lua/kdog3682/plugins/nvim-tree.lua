@@ -1,17 +1,8 @@
-local function on_attach(bufnr)
-	local api = require("nvim-tree.api")
-
-	api.config.mappings.default_on_attach(bufnr)
-
-	vim.keymap.set("n", "qq", api.tree.close())
-end
-
 return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		local nvimtree = require("nvim-tree")
-
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 

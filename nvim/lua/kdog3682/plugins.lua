@@ -1,5 +1,6 @@
 local plugins = {
 	"fzf",
+	"nvim-tree",
 	-- "treesitter",
     -- "whichkey",
 	--
@@ -43,7 +44,6 @@ end
 function loader(plugins)
 	local disabled = {
 		"gzip",
-		"matchparen",
 		"netrwPlugin",
 		"tarPlugin",
 		"tohtml",

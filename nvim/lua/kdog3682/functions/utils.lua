@@ -1,3 +1,9 @@
+local serpent = require("kdog3682.lib.serpent")
+
+local function print_table_contents(t)
+    print(111)
+    -- print(serpent.dump(t))
+end
 local function to_array(t)
     if not t then return {}
     elseif vim.tbl_islist(t) then
@@ -1472,5 +1478,6 @@ M.visual_handler = visual_handler
 M.vnoremap = vnoremap
 M.vt = vt
 M.wrapf2 = wrapf2
+M.print_table_contents = print_table_contents
 
 return M
