@@ -30,6 +30,5 @@ return {
 				luasnip.change_choice(1)
 			end
 		end, "Show list of options")
-
 	end,
 }

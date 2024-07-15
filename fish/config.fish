@@ -38,10 +38,20 @@ function git-commit
     end
 end
 
+function big-commit
+    git add .
+    if test (count $argv) -eq 0
+        git commit -m "big-commit"
+    else
+        git commit -m "$argv"
+    end
+    git push
+end
+
 function git-commit-all 
     git add .
     if test (count $argv) -eq 0
-        git commit
+        git commit -m "commit-all"
     else
         git commit -m "$argv"
     end
@@ -57,11 +67,12 @@ end
 
 
 function gc 
-    set file $argv[1]
-    set -e argv[1]
-    set message (string join " " $argv)
-    git add $file
-    git commit -m "$message"
+    if test (count $argv) -eq 0
+        git commit
+    else
+        set message (string join " " $argv)
+        git commit -m "$message"
+    end
 end
 
 
@@ -76,6 +87,7 @@ end
 function gs
     git status
 end
+
 
 
 
@@ -152,9 +164,12 @@ abbr up 'cd ..'
 abbr cbh 'cat ~/.bash_history'
 abbr xxx 'ls ~/.cache/kdog3682'
 abbr cdnvim 'cd ~/.config/nvim'
+abbr v 'vim ~/.vimrc'
 abbr cdfox 'cd ~/projects/foxscribe/'
 abbr pi 'pnpm install'
-abbr run 'npm run dev'
+abbr run 'pnpm run dev'
+abbr test 'pnpm run test'
+abbr e2e 'pnpm run e2e'
 abbr pyproject 'cat ~/projects/pyvimkit/pyproject.toml'
 
 function nvi
@@ -166,3 +181,109 @@ function nvi
 end
 
 abbr bfg '/mnt/chromeos/MyFiles/Downloads/bfg-1.14.0.jar'
+
+
+function cd_and_save
+    if test -n "$argv"
+        set dir $argv[1]
+        if test -d $dir
+            set alias (basename $dir)
+            echo "abbr $alias 'cd $dir' >> ~/dotfiles/fish/config.fish"
+            cd $dir
+            echo "Created alias '$alias' for '$dir'"
+        else
+            echo "'$dir' is not a valid directory"
+        end
+    else
+        echo "Usage: cdandsave [dir]"
+    end
+end
+
+function save_current_dir
+    if test -n "$argv"
+        set alias $argv[1]
+        set dir (pwd)
+        echo "abbr $alias 'cd $dir'" >> ~/.config/fish/config.fish
+        echo "Created alias '$alias' for '$dir'"
+    else
+        echo "Usage: save_current_dir <alias>"
+    end
+end
+abbr scd 'save_current_dir'
+abbr greenleaf 'cd /home/kdog3682/projects/greenleaf'
+
+abbr pdf 'node ~/2023/fs-watch.js'
+abbr ga 'git add .'
+abbr gl 'git log'
+abbr dev 'pnpm run dev'
+
+
+
+function checkout
+    if test (count $argv) -eq 0
+        echo "Usage Error (missing <branch-name): checkout <branch-name>"
+        return 1
+    end
+
+    set branch_name $argv[1]
+    git checkout -b $branch_name
+end
+
+# Function to push current branch upstream and revert to main (if not on main)
+function push-branch
+    # Check if on main branch
+    if test (git rev-parse --abbrev-ref HEAD) = "main"
+        echo "Already on main branch. Nothing to do."
+        echo "this operation is only for feature branches"
+        return 1
+    end
+
+    # Check if on a branch
+    if not test (git rev-parse --abbrev-ref HEAD)
+        echo "Not on any branch."
+        return 1
+    end
+
+    set current_branch (git rev-parse --abbrev-ref HEAD)
+
+    # Push current branch to set upstream
+    git push --set-upstream origin $current_branch
+
+    # Revert back to main
+    git checkout main
+end
+
+
+
+function fc
+    # Define a dictionary with key-directory pairs
+    set -l dir_map \
+        m ~/projects/typst/mathematical \
+        mva /home/kdog3682/projects/my-vitesse-app \
+        foxscribe /home/kdog3682/projects/foxscribe \
+        greenleaf /home/kdog3682/projects/greenleaf \
+        pearbook /home/kdog3682/projects/pearbook \
+        vue-starter /home/kdog3682/projects/vue-starter \
+        tk /home/kdog3682/projects/typkit \
+        hm /home/kdog3682/projects/hammymath \
+
+    # Prompt the user for a key
+    # read -P "Enter directory key: " key
+    set key $argv[1]
+
+    # Find the directory corresponding to the key
+    for i in (seq 1 2 (count $dir_map))
+        if test $dir_map[$i] = $key
+            set dir $dir_map[(math $i + 1)]
+            break
+        end
+    end
+
+    # Check if directory was found and change to it
+    if test -n "$dir"
+        cd $dir
+    else
+        echo "Invalid key: $key"
+    end
+end
+

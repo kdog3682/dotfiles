@@ -1,4 +1,3 @@
-
 luafile ~/.config/nvim/lua/kdog3682/init.lua
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
@@ -34,6 +33,17 @@ function! OmniSave()
             let error = v:exception
             ec error
         endtry
+    elseif file== '/home/kdog3682/PYTHON/pyvim2.py' 
+        try
+            :py3file /home/kdog3682/PYTHON/pyvim2.py
+        catch
+            let error = v:exception
+            if Test(error, "Interrupt")
+                return 
+            endif
+            ec error
+        endtry
+
     elseif file== '/home/kdog3682/PYTHON/chatgpt_vim_python_executor.py' 
         try
             :py3file /home/kdog3682/PYTHON/chatgpt_vim_python_executor.py
@@ -52,38 +62,6 @@ endfunction
 nnoremap \\ :wa<CR>:q<CR>
 nnoremap s :update<CR>:call OmniSave()<CR>
 nnoremap <leader>v :e /home/kdog3682/dotfiles/nvim/init.vim<CR>G
-
-
-
-
-function! RunPythonStartup()
-python3 << EOF
-    
-import sys
-sys.path.append('/home/kdog3682/PYTHON/')
-
-import utils
-import chatgpt_vim_python_executor as mod
-mod.unsetup()
-# mod.unhighlight()
-print("removing certain keymaps ... importing utils")
-    
-EOF
-endfunction
-
-autocmd VimEnter * call RunPythonStartup()
-
-
-function! PyTest()
-python3 << EOF
-print(get_var('g:abc'))
-print(utils.findall('amaaaaaaa', 'a'))
-set_var('g:abc', 1233333)
-EOF
-endfunction
-
-let g:execRef2["pt"]="PyTest"
-let g:execRef2["pt2"]="PyTest2"
 
 hi MoreMsg ctermfg=White ctermbg = Black
 hi SpecialKey ctermfg=White ctermbg = Black
@@ -126,6 +104,40 @@ hi Normal ctermfg=None ctermbg = None
 hi SpecialChar ctermfg=None ctermbg = None 
 hi LineNr ctermfg=White
 
+
+
+
+function! RunPythonStartup()
+python3 << EOF
+    
+import sys
+sys.path.append('/home/kdog3682/PYTHON/')
+
+import utils
+import chatgpt_vim_python_executor as mod
+mod.unsetup()
+# mod.unhighlight()
+print("removing certain keymaps ... importing utils")
+    
+EOF
+endfunction
+
+autocmd VimEnter * call RunPythonStartup()
+
+
+function! PyTest()
+python3 << EOF
+# this stuff works
+print(get_var('g:abc'))
+print(utils.findall('amaaaaaaa', 'a'))
+set_var('g:abc', 1233333)
+EOF
+endfunction
+
+let g:execRef2["pt"]="PyTest"
+let g:execRef2["pt2"]="PyTest2"
+
+
 " asdfasdfasdf
 "
 "
@@ -136,9 +148,16 @@ function! SeeHighlights()
 endfunction
 
 "nnoremap c :python3 mod.toggle_block_comments()<CR>
-nnoremap c :python3 mod.toggle_line_comments()<CR>
+nnoremap <silent> c :python3 mod.toggle_line_comments()<CR><DOWN>
 nnoremap <c-\> :wq<CR>
-nnoremap g0 :python3 mod.go_file_from_line()<CR>
+nnoremap <silent> g0 :python3 mod.go_file_from_line()<CR>
+
+
+inoremap <nowait> <silent> <expr> <CR> py3eval("mod.omni_enter_wrapper()") 
+vnoremap <nowait> <cr>   :<c-u>call py3eval("mod.visual_handler()")<CR>
+
 " /home/kdog3682/PYTHON/chatgpt_vim_python_executor.py
 " /home/kdog3682/PYTHON/execute_neovim_lua.lua
 " /home/kdog3682/PYTHON/execute_neovim_lua1.lua
+
+
