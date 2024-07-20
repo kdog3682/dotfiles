@@ -199,10 +199,14 @@ let g:wpsnippets2["text"]["td"] = "```"
 
 
 let g:filedict["hkpfscmsfv"] = "/home/kdog3682/projects/foxscribe/src/components/multi-step-form.vue"
+let g:filedict["foot"] = "/home/kdog3682/scratch/bar.typ"
 
 nnoremap <leader>` :call FzfVueProject2('~/projects/foxscribe')<CR>
 
 function! FzfVueProject2(dir)
+    if empty(a:dir)
+        return 
+    endif
     let regex= '(assets|fonts|\.git/|node_modules)'
     let payload = {'window': {'width': 0.88, 'height': 0.8}, 'left': '50%'}
     let payload['dir'] = a:dir 
@@ -218,3 +222,27 @@ let g:wpsnippets2["global"]["eat"] = "inoreab <buffer> $1 $2<C-R>=Eatchar('\\s')
 " inoreab <buffer> foox boar<C-R>=Eatchar('s')<CR>
 inoreab <buffer> foo bar<C-R>=Eatchar('\s')<CR>
 let g:wpsnippets2["typst"]["a1"] = "let placeholder = if args.len() == 1 { args.first() } else { $1 }"
+let g:wpsnippets2["typst"]["math"] = "#import \"@local/mathematical:0.1.0\": *"
+let g:wpsnippets2["typst"]["ab"] = "$1: $1,"
+
+nnoremap e0 :call OpenBuffer4(g:activeFileLogFile)<CR>
+nnoremap <nowait> et :call OpenBuffer4('~/2024-javascript/testsuite/index.js')<CR>
+nnoremap <buffer> e0 :call OpenBuffer4(g:activeFileLogFile)<CR>
+let g:wpsnippets2["fish"]["a"] = "abbr $1 '$2'"
+let g:linkedBufferGroups["/home/kdog3682/2024-javascript/ttt/visit.js"] = "/home/kdog3682/2024-javascript/ttt/doFrontmatter.js"
+let g:linkedBufferGroups["/home/kdog3682/2024-javascript/ttt/doFrontmatter.js"] = "/home/kdog3682/2024-javascript/ttt/visit.js"
+
+let g:wpsnippets2["javascript"]["forc"] = "const children = node.children\nfor (let i = 0; i < children.length; i++) {\n    const child = children[i]\n    $c    \n}"
+let g:wpsnippets2["global"] = {}
+let g:wpsnippets2["global"]["td"] = "```\n$c\n```"
+
+iunabbrev <buffer> is
+iunabbrev <buffer> be
+let g:linkedBufferGroups["/home/kdog3682/2024-javascript/ttt/textToTypst.js"] = "/home/kdog3682/2024-javascript/ttt/typstFunctions.js"
+let g:linkedBufferGroups["/home/kdog3682/2024-javascript/ttt/typstFunctions.js"] = "/home/kdog3682/2024-javascript/ttt/textToTypst.js"
+
+nunmap <leader>gt
+nnoremap <nowait> <leader>g :call FzfVueProject2(GetGitDirPath())<CR>
+nnoremap <nowait> <leader>x :call FzfVueProject2("~/projects/greenleaf/")<CR>
+let g:wpsnippets2["javascript"]["u"] = "import { $1 } from \"/home/kdog3682/2023/utils.js\""
+let g:wpsnippets2["python"]["ab"] = "\"$1\": $1,"

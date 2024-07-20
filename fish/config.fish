@@ -213,7 +213,7 @@ abbr scd 'save_current_dir'
 abbr greenleaf 'cd /home/kdog3682/projects/greenleaf'
 
 abbr pdf 'node ~/2023/fs-watch.js'
-abbr ga 'git add .'
+abbr ga 'git add'
 abbr gl 'git log'
 abbr dev 'pnpm run dev'
 
@@ -266,6 +266,7 @@ function fc
         vue-starter /home/kdog3682/projects/vue-starter \
         tk /home/kdog3682/projects/typkit \
         hm /home/kdog3682/projects/hammymath \
+        ttt /home/kdog3682/2024-javascript \
 
     # Prompt the user for a key
     # read -P "Enter directory key: " key
@@ -287,3 +288,41 @@ function fc
     end
 end
 
+
+
+
+
+# eat: a
+
+
+abbr reset 'git reset HEAD'
+abbr diff 'git diff HEAD'
+
+
+function gae 
+    git add .
+    for arg in $argv
+        git reset HEAD $arg
+    end
+end
+
+
+
+function soft
+    if test (count $argv) -eq 0
+        echo "Usage: requires a <file>"
+        return 1
+    end
+    set file $argv[1]
+    git show HEAD:$file > $file
+    echo "Restored $file to its state from the previous commit."
+end
+
+function push
+    git push --set-upstream origin dev
+end
+
+
+abbr p 'vim ~/projects/maelstrom/__main__.py'
+
+abbr nvi '/mnt/chromeos/MyFiles/Downloads/nvim-linux64/bin/nvim /home/kdog3682/dotfiles/nvim/init.vim'

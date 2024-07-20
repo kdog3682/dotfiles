@@ -1,0 +1,78 @@
+{
+  "component-str": {
+    "input": "\n\nfoobar\n    dd: foolio\n    bb: argard\n\n    lets go\n    this is prose\n\n    foobar \n        asdf: 1\n        iiasdf: \n            sd:\n                sd:\n                    sd: 1\n\n        hi there\n        hi there\n        hi there\n    \n    barrkre3\n    barrkre1\n        barrkre2\n\n        aaaa\n            aaa\n                aaa\n                aaa\n            aaab\n        aaab\n        foobar\n            asd: 1 this is part of text\n\n    foobar\n        asd: 1\n",
+    "value": [
+      {
+        "children": [
+          {
+            "ind": 1,
+            "text": "lets go",
+            "newlines": 0
+          },
+          {
+            "ind": 1,
+            "text": "this is prose",
+            "newlines": 1
+          },
+          {
+            "children": [
+              {
+                "ind": 2,
+                "text": "hi there",
+                "newlines": 0
+              },
+              {
+                "ind": 2,
+                "text": "hi there",
+                "newlines": 0
+              },
+              {
+                "ind": 2,
+                "text": "hi there",
+                "newlines": 0
+              }
+            ],
+            "key": "foobar",
+            "attrs": {
+              "asdf": 1,
+              "sd": {
+                "sd": {
+                  "sd": 1
+                }
+              }
+            }
+          },
+          {
+            "ind": 1,
+            "text": "barrkre3",
+            "newlines": 0
+          },
+          {
+            "text": "barrkre1\n    barrkre2\n\n    aaaa\n        aaa\n            aaa\n            aaa\n        aaab\n    aaab\n    foobar\n        asd: 1 this is part of text",
+            "newlines": 1,
+            "ind": 1
+          },
+          {
+            "children": [],
+            "key": "foobar",
+            "attrs": {
+              "asd": 1
+            }
+          }
+        ],
+        "key": "foobar",
+        "attrs": {
+          "dd": "foolio",
+          "bb": "argard"
+        }
+      }
+    ],
+    "desc": "foobar component and accumulated text",
+    "opts": {
+      "reset": true,
+      "removeComments": true
+    },
+    "name": "visit",
+    "timestamp": 1721189405783
+  }
+}

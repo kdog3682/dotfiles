@@ -3,7 +3,7 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
 source /home/kdog3682/.vim/ftplugin/vimrc.january2024.vim
-source /home/kdog3682/.vim/ftplugin/generated.vim
+" source /home/kdog3682/.vim/ftplugin/generated.vim
 autocmd! bufwritepost *.vim source ~/.config/nvim/init.vim
 filetype indent off
 
@@ -18,6 +18,8 @@ let g:execRef2["foo"] = "Foo"
 
 function! OmniSave()
     let file = CurrentFile()
+    " execute '!python3 ~/PYTHON/foo.py'
+    " return 
     if file== '/home/kdog3682/PYTHON/execute_neovim_lua1.lua' 
         try
             :luafile /home/kdog3682/PYTHON/execute_neovim_lua1.lua
@@ -25,6 +27,9 @@ function! OmniSave()
             let error = v:exception
             ec error
         endtry
+
+    elseif Test(file, "\.js")
+        execute "!clear; node --no-warnings " . file
 
     elseif file== '/home/kdog3682/PYTHON/execute_neovim_lua.lua' 
         try
@@ -35,7 +40,9 @@ function! OmniSave()
         endtry
     elseif file== '/home/kdog3682/PYTHON/pyvim2.py' 
         try
-            :py3file /home/kdog3682/PYTHON/pyvim2.py
+            " :py3file /home/kdog3682/PYTHON/pyvim2.py
+            :python3 reload_module("pyvim2")
+            :python3 reload_module("native")
         catch
             let error = v:exception
             if Test(error, "Interrupt")
@@ -112,11 +119,13 @@ python3 << EOF
     
 import sys
 sys.path.append('/home/kdog3682/PYTHON/')
+sys.path.append('/home/kdog3682/maelstrom/')
 
 import utils
 import chatgpt_vim_python_executor as mod
 mod.unsetup()
 # mod.unhighlight()
+print("RunPythonStartup @ init.vim: initializing python & maelstrom")
 print("removing certain keymaps ... importing utils")
     
 EOF
@@ -151,13 +160,15 @@ endfunction
 nnoremap <silent> c :python3 mod.toggle_line_comments()<CR><DOWN>
 nnoremap <c-\> :wq<CR>
 nnoremap <silent> g0 :python3 mod.go_file_from_line()<CR>
+nnoremap zx :w<cr>:python3 mod.reload_chatgpt_module()<CR>
+nnoremap za :w<cr>:python3 mod.reload_all()<CR>
+nnoremap ` :python3 mod.colon_handler('')<LEFT><LEFT>
 
 
 inoremap <nowait> <silent> <expr> <CR> py3eval("mod.omni_enter_wrapper()") 
 vnoremap <nowait> <cr>   :<c-u>call py3eval("mod.visual_handler()")<CR>
+nnoremap e0 :call OpenBuffer4(g:activeFileLogFile)<CR>
 
-" /home/kdog3682/PYTHON/chatgpt_vim_python_executor.py
+
 " /home/kdog3682/PYTHON/execute_neovim_lua.lua
-" /home/kdog3682/PYTHON/execute_neovim_lua1.lua
-
-
+" /home/kdog3682/PYTHON/chatgpt_vim_python_executor.py
